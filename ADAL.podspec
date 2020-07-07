@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "https://twitter.com/azuread"
   s.platform     = :ios, "8.0"
   s.source       = {
-    :git => "https://github.com/AzureAD/azure-activedirectory-library-for-objc.git",
+    :git => "https://github.com/lai001/azure-activedirectory-library-for-objc.git",
     :tag => s.version.to_s
   }
   s.source_files = "ADALiOS/ADALiOS/**/*.{h,m}"

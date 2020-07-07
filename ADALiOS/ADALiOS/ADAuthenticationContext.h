@@ -16,6 +16,7 @@
 // See the Apache License, Version 2.0 for the specific language
 // governing permissions and limitations under the License.
 #import <Foundation/Foundation.h>
+#import <WebKit/WebKit.h>
 
 #import "ADTokenCacheStoring.h"
 #import "ADAuthenticationError.h"
@@ -27,11 +28,11 @@
 #if TARGET_OS_IPHONE
 //iOS:
 #   include <UIKit/UIKit.h>
-typedef UIWebView WebViewType;
+typedef WKWebView WebViewType;
 #else
 //OS X:
 #   include <WebKit/WebKit.h>
-typedef WebView   WebViewType;
+typedef WKWebView   WebViewType;
 #endif
 
 @class UIViewController;
@@ -167,7 +168,7 @@ typedef void(^ADAuthenticationCallback)(ADAuthenticationResult* result);
 
 /*! Follows the OAuth2 protocol (RFC 6749). The function will first look at the cache and automatically check for token
  expiration. Additionally, if no suitable access token is found in the cache, but refresh token is available,
- the function will use the refresh token automatically. If neither of these attempts succeeds, the method will use the provided assertion to get an 
+ the function will use the refresh token automatically. If neither of these attempts succeeds, the method will use the provided assertion to get an
  access token from the service.
  
  @param samlAssertion: the assertion representing the authenticated user.
